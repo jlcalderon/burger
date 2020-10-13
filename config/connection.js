@@ -13,7 +13,9 @@ connection.connect(function(err) {
         console.log(`Error connecting to: ${err.stack}`);
         return;
     }
-    console.log(`Connected to database: ${connection.database} as id ${connection.threadId} `);
+    console.log(`Connected as id ${connection.threadId} `);
 });
+
+console.log(`to database: ${connection.database} `);
 
 module.exports = connection;

@@ -10,40 +10,46 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-/* HTML static files routes */
-/* Display main index page with the data fetched from the database*/
-app.get("/", function(req, res) {
+//Set up the render views with express handlebars
+var exphbs = require("express-handlebars");
 
-});
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgers_controller.js");
+app.use(routes);
+
+/* Migrate all code below to the burgers_controller.js */
 
 /* API's server routes */
 /* Get all burgers */
-app.get("/api/burgers", function(req, res) {
+/* app.get("/api/burgers", function(req, res) {
 
-});
+}); */
 
 /* Get burgers recently added to the menu awaiting to be devoured*/
-app.get("/api/burgers/awaiting", function(req, res) {
+/* app.get("/api/burgers/awaiting", function(req, res) {
 
-});
+}); */
 
 /* Get burgers recently devoured*/
-app.get("/api/burgers/devoured", function(req, res) {
+/* app.get("/api/burgers/devoured", function(req, res) {
 
-});
+}); */
 
 /* Send a post request to Create a new burger  */
-app.post("/api/burgers", function(req, res) {
+/* app.post("/api/burgers", function(req, res) {
     let newBurger = req.body;
-});
+}); */
 
 /* Updates a burger status */
-app.put("/api/burgers:id", function(req, res) {
+/* app.put("/api/burgers:id", function(req, res) {
     const burgerID = req.params.id;
-});
+}); */
 
 
 // Starts the server to begin listening
 app.listen(PORT, function() {
-    console.log(`Application listening on port: ${PORT} open the app clicking on: http:localhost:${PORT}`);
+    console.log(`Application listening on port: ${PORT} open the app clicking on: http://localhost:${PORT}`);
 });
