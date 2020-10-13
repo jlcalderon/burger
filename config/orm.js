@@ -1,15 +1,18 @@
 const connection = require("./connection.js");
 
 const orm = {
-    selectAll: function({}) {
+    selectAll: function(table) {
 
     },
 
-    insertOne: function({}) {
+    insertOne: function(table, newValue) {
 
     },
 
-    updateOne: function({}) {
+    updateOne: function(table, colToFilter, newValue) {
+
+    },
+    selectByStatus: function(table, colToFilter, statusValue) {
 
     }
 }
