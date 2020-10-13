@@ -1,6 +1,24 @@
 <h1>All burgers</h1>
-<ul>
+<ul style="background-color: chocolate">
     {{#each burgers}}
-    <li>{{name}}</li>
+        <li>{{name}}</li>
+    {{/each}}
+</ul>
+
+<h1>Burgers Awaiting for you</h1>
+<ul style="background-color: aqua;">
+    {{#each burgers}}
+        {{#unless devoured}}
+            <li>{{name}}</li>
+        {{/unless}}
+    {{/each}}
+</ul>
+
+<h1>Burgers Devoured</h1>
+<ul style="background-color:blueviolet;">
+    {{#each burgers}}
+        {{#if devoured}}
+            <li>{{name}}</li>
+        {{/if}}
     {{/each}}
 </ul>
