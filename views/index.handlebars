@@ -1,24 +1,47 @@
-<h1>All burgers</h1>
-<ul style="background-color: chocolate">
-    {{#each burgers}}
-        <li>{{name}}</li>
-    {{/each}}
-</ul>
+<div class="content">
+<div class="row">
+<div class="col burger-list">
+    <h1>Burgers Awaiting</h1>
+    <ul>
+        {{#each burgers}}
+            {{#unless devoured}}
+                <li>
+                     {{name}}
+                </li>
+                    <a href="./api/burgers" class="btn btn-danger update-burgers" data-id="{{id}}"   alt="Update the property of status devoured to this element">Devour it!</a>
+            {{/unless}}
+        {{/each}}
+    </ul>
+</div>
+<div class="col" style="text-align: center;">
+    <div class="d-flex justify-content-center">
+        <img src="/assets/img/burger-logo.png" alt="Restaurant app brand" width="300px"/>
+    </div>
+    <h4>Express, MySQL ,Handlebars and craft ORM'S</h4>
+    <form>
+        <div class="form-group">
+            <input class="form-control form-control-lg" type="text" placeholder="Request Your Burger Here" name="new-burger" id="new-burger" style="text-align: center;">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" style="background-color:#21739f; color: antiquewhite;" data-id="request-burger">Request Da</button>
+        </div>
+    </form>
+</div>
+<div class="col burger-list">
+    <h1>Burgers Devoured</h1>
+    <ul>
+        {{#each burgers}}
+            {{#if devoured}}
+                <li>{{name}}</li>
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>
+</div>
+<div class="row m-center p-auto" >
+    <footer>
 
-<h1>Burgers Awaiting for you</h1>
-<ul style="background-color: aqua;">
-    {{#each burgers}}
-        {{#unless devoured}}
-            <li>{{name}}</li>
-        {{/unless}}
-    {{/each}}
-</ul>
+    </footer>
+</div>
 
-<h1>Burgers Devoured</h1>
-<ul style="background-color:blueviolet;">
-    {{#each burgers}}
-        {{#if devoured}}
-            <li>{{name}}</li>
-        {{/if}}
-    {{/each}}
-</ul>
+</div>
