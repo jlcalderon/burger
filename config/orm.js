@@ -55,8 +55,15 @@ const orm = {
 
     },
 
-    updateOne: function(table, colToFilter, newValue) {
-
+    updateOne: function(table, objColVals, condition, cb) {
+        const queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`;
+        console.log("Update clicked", queryString);
+        connection.query(queryString, function(err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
+        });
     },
     selectByStatus: function(table, colToFilter, statusValue) {
 
