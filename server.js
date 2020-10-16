@@ -1,9 +1,12 @@
 const express = require("express");
+const favicon = require('serve-favicon');
+const path = require('path');
+const PORT = process.env.PORT || 8010;
 
 //Initializing the app variable
 const app = express();
-const PORT = process.env.PORT || 8010;
-
+//ading favicon from npm package
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 //Set up the server static html files that are going to be served
 app.use(express.static("public"));
 //Set up the responses format
