@@ -1,9 +1,10 @@
 /* import express package */
 const express = require("express");
-/* import the burger model */
-const burger = require("../models/burger.js");
 /* Middleware Router of express */
 const router = express.Router();
+/* import the burger model */
+const burger = require("../models/burger.js");
+
 
 /* HTML static files routes */
 /* Display main index page with the data fetched from the database*/
