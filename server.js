@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 8010;
 const app = express();
 //ading favicon from npm package
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+//Set up the server static path src
+app.use(express.static("src"));
 //Set up the server static html files that are going to be served
 app.use(express.static("public"));
 //Set up the responses format
