@@ -18,12 +18,12 @@
         <img src="/assets/img/burger-logo.png" alt="Restaurant app brand" width="300px"/>
     </div>
     <h4>Express, MySQL ,Handlebars and craft ORM'S</h4>
-    <form>
+    <form class="create-burger">
         <div class="form-group">
-            <input class="form-control form-control-lg" type="text" placeholder="Request Your Burger Here" name="new-burger" id="new-burger" style="text-align: center;">
+            <input class="form-control form-control-lg new-burger" type="text" placeholder="Request Your Burger Here" name="name" id="new-burger" data-id="0" data-devoured="false" style="text-align: center; color:BLACK">
         </div>
         <div class="form-group">
-            <button class="btn btn-primary" style="background-color:#21739f; color: antiquewhite;" data-id="request-burger">Request Da</button>
+            <button type="submit" class="btn btn-primary" style="background-color:#21739f; color: antiquewhite;" data-id="request-burger">Request Da</button>
         </div>
     </form>
 </div>
@@ -40,7 +40,7 @@
 </div>
 <div class="row m-center p-auto" >
     <footer>
-
+        
     </footer>
 </div>
 

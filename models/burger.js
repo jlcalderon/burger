@@ -10,8 +10,12 @@ const burger = {
         orm.updateOne("burgers", objColVals, condition, function(res) {
             cb(res);
         });
+    },
+    insertOne: function(cols, values, cb) {
+        orm.insertOne("burgers", cols, values, function(res) {
+            cb(res);
+        });
     }
-
 }
 
 module.exports = burger;

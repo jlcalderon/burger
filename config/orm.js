@@ -51,8 +51,16 @@ const orm = {
         });
     },
 
-    insertOne: function(table, newValue) {
+    insertOne: function(table, cols, values, cb) {
+        const queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES(${printQuestionMarks(values.length)});`;
+        console.log("Form submited", queryString);
+        connection.query(queryString, values, function(err, result) {
+            if (err) {
+                throw err;
+            }
 
+            cb(result);
+        });
     },
 
     updateOne: function(table, objColVals, condition, cb) {
@@ -64,9 +72,6 @@ const orm = {
             }
             cb(result);
         });
-    },
-    selectByStatus: function(table, colToFilter, statusValue) {
-
     }
 }
 

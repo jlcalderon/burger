@@ -1,4 +1,5 @@
 /* import express package */
+const { Router } = require("Express");
 const express = require("Express");
 /* import the burger model */
 const burger = require("../models/burger.js");
@@ -32,7 +33,16 @@ router.put("/api/burgers/:id", function(req, res) {
     });
 });
 
-//MORE routes comming up here...
+/* Add a new burger to waiting list */
+router.post("/api/burgers", function(req, res) {
+
+    burger.insertOne(
+        ["name", "devoured"], [req.body.name, req.body.devoured],
+        function(result) {
+            res.json({ id: result.insertId });
+        }
+    );
+});
 
 // Export routes for server.js to use.
 module.exports = router;
