@@ -1,6 +1,5 @@
 /* import express package */
-const { Router } = require("Express");
-const express = require("Express");
+const express = require("express");
 /* import the burger model */
 const burger = require("../models/burger.js");
 /* Middleware Router of express */
